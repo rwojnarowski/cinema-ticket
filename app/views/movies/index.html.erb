@@ -1,0 +1,11 @@
+
+<% @movie.each do |movie| %>
+<h1><%= link_to movie.title, movie_path(movie) %></h1>
+<p><%= movie.description %></p>
+<small><%= movie.created_at %></small>
+  <% if user_signed_in? && current_user.level == 1 %>
+  <%= link_to 'Remove Movie', movie_path(movie), method: :delete %>
+  <% else %>
+  <% end %>
+<hr>
+<% end %>
