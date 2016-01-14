@@ -14,13 +14,13 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><%= link_to 'News', "#" %></li>
+        <li><%= link_to 'News', articles_path %></li>
         <li><%= link_to 'All movies', movies_path %></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Actions <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Edit content</a></li>
-            <li><a href="#">Add movie</a></li>
+            <li><%= link_to 'Add news', new_article_path %></li>
+            <li><%= link_to 'Add movie', new_movie_path %></li>
             <li role="separator" class="divider"></li>
             <li><a href="#">Manage users</a></li>
           </ul>
@@ -35,7 +35,7 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Profile   <% if user_signed_in? && current_user.level == 1 %><strong style="color: red;">(Admin)</strong><% end %><span class="caret"></span></a>
           <ul class="dropdown-menu">
             <li><a href="#">Profile info</a></li>
             <li><%= link_to 'Edit', edit_user_registration_path %></li>

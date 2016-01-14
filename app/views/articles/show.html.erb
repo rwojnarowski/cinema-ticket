@@ -1,0 +1,6 @@
+<h1><%= @article.title %></h1>
+<p><%= @article.description %></p>
+<small><%= @article.user.email %></small> ||
+<small><%= @article.created_at %></small> ||
+<small><%= @article.updated_at %></small>
+<p align="center"><%= link_to '[ go back ]', articles_path  %></p>

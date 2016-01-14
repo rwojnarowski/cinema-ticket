@@ -4,8 +4,7 @@
 <p><%= movie.description %></p>
 <small><%= movie.created_at %></small>
   <% if user_signed_in? && current_user.level == 1 %>
-  <%= link_to 'Remove Movie', movie_path(movie), method: :delete %>
-  <% else %>
+  <%= link_to 'Remove Movie', movie_path(movie), method: :delete, data: { confirm: "Are you sure?"} %>
   <% end %>
 <hr>
 <% end %>
