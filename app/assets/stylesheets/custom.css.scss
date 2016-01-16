@@ -12,6 +12,7 @@ footer {
   padding-top: 5px;
   border-top: 1px solid #eaeaea;
   color: #777;
+  padding-bottom: 25px;
 }
 
 footer a:hover {
@@ -20,4 +21,12 @@ footer a:hover {
 
 footer small {
   float: right;
+}
+
+span a {
+  color: white;
+}
+
+.pagination_center {
+  text-align: center;
 }

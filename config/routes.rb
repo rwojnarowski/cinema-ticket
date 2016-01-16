@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   root 'pages#home'
 
   get 'about'   => 'pages#about'
-  resources :movies
-  resources :articles
+  get 'movies_search' => 'movies#search'
+  resources :movies, :articles, :genres
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

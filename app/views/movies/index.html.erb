@@ -1,10 +1,19 @@
+<div class="pagination_center">
+  <%= will_paginate @movie, renderer: BootstrapPagination::Rails %>
+</div>
 
 <% @movie.each do |movie| %>
-<h1><%= link_to movie.title, movie_path(movie) %></h1>
-<p><%= movie.description %></p>
-<small><%= movie.created_at %></small>
-  <% if user_signed_in? && current_user.level == 1 %>
-  <%= link_to 'Remove Movie', movie_path(movie), method: :delete, data: { confirm: "Are you sure?"} %>
+  <h1><%= link_to movie.title, movie_path(movie) %></h1>
+  <p><%= truncate(movie.description, length: 50) %></p>
+  <small><%= movie.created_at %></small>
+  <% if movie.genres.any? %>
+    <p>Genres: <%= render movie.genres %></p>
   <% end %>
-<hr>
+  <% if user_signed_in? && current_user.level == 1 %>
+    <p><%= link_to 'Remove Movie', movie_path(movie), method: :delete, data: { confirm: "Are you sure?"} %> || <%= link_to 'Edit', edit_movie_path(movie) %></p>
+  <% end %>
+  <hr>
 <% end %>
+<div class="pagination_center">
+  <%= will_paginate @movie, renderer: BootstrapPagination::Rails %>
+</div>

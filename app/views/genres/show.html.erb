@@ -1,0 +1,25 @@
+<h2>This is: <%= @genre.genre %></h2>
+<p>List of movies in this category: </p>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Duration</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @genremovies.each do |movies| %>
+      <tr>
+        <td><%= link_to movies.title, movie_path(movies) %></td>
+        <td><%= movies.description %></td>
+        <td><%= movies.time %></td>
+      </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+
+
+<p align="center"><%= link_to '[ go back ]', genres_path  %></p>

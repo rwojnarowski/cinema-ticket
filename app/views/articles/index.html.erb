@@ -1,9 +1,15 @@
-<% @article.each do |article| %>
-<h1><%= link_to article.title, article_path(article) %></h1>
-<p><%= article.description %></p>
-<% if user_signed_in? && current_user.level == 1 %>
-<%= link_to 'Remove article', article_path(article), method: :delete, data: { confirm: "Are you sure?"} %>
-<% end %>
-<small><%= article.user.email if article.user %></small> ||
-<small><%= article.created_at.strftime("%d %b. %Y") %></small>
-<% end %>
+<div class="pagination_center">
+  <%= will_paginate @article, renderer: BootstrapPagination::Rails %>
+</div>
+  <% @article.each do |article| %>
+  <h1><%= link_to article.title, article_path(article) %></h1>
+  <p><%= article.description %></p>
+  <% if user_signed_in? && current_user.level == 1 %>
+  <%= link_to 'Remove article', article_path(article), method: :delete, data: { confirm: "Are you sure?"} %>
+  <% end %>
+  <small><%= article.user.email if article.user %></small> ||
+  <small><%= article.created_at.strftime("%d %b. %Y") %></small>
+  <% end %>
+<div class="pagination_center">
+  <%= will_paginate @article, renderer: BootstrapPagination::Rails %>
+</div>

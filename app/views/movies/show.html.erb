@@ -2,3 +2,6 @@
 <p><%= @movie.description %></p>
 <small><%= @movie.created_at %></small>
 <p class="center"><%= link_to "[go back]", movies_path %></p>
+<% if @movie.genres.any? %>
+  <p>Genres: <%= render @movie.genres %></p>
+<% end %>

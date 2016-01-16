@@ -1,0 +1,9 @@
+<h1>All genres</h1>
+<% @genre.each do |genre| %>
+<h1><%= link_to genre.genre, genre_path(genre) %></h1>
+
+<% if user_signed_in? && current_user.level == 1 %>
+<small><%= link_to 'Remove genre', genre_path(genre), method: :delete, data: { confirm: "Are you sure?"} %></small>
+<% end %>
+
+<% end %>
