@@ -2,6 +2,13 @@
   <%= will_paginate @article, renderer: BootstrapPagination::Rails %>
 </div>
   <% @article.each do |article| %>
+  <h1>numer:: <% i = @article.size %>
+              <% (0..i).each do |x| %>
+              <%= x %>
+              <% end %>
+
+
+            </h1>
   <h1><%= link_to article.title, article_path(article) %></h1>
   <p><%= article.description %></p>
   <% if user_signed_in? && current_user.level == 1 %>

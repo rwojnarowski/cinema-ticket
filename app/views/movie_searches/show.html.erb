@@ -1,0 +1,24 @@
+<h1>Search results</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Title:</th>
+        <th>Description:</th>
+        <th>Duration:</th>
+        <th>Category:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @search.movies %>
+
+    </tbody>
+  </table>
+
+//<% movie.genres.map { |ge| ge.genre }.join(", ").split("").map do |t| %>
+    <%= t %>
+    <% end %>
+
+
+ <%= movie.genres %>
